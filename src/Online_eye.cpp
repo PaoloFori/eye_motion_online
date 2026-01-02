@@ -5,7 +5,7 @@ namespace eye{
 Online_eye::Online_eye(void) : p_nh_("~"){
     this->sub_events_ = this->nh_.subscribe("events/bus", 1, &Online_eye::eventsCallback, this);
     this->sub_cvsa_   = this->nh_.subscribe("cvsa/eye", 1, &Online_eye::eyeCallback, this);
-    this->srv_        = this->nh_.serviceClient<feedback_cvsa::Repeat_trial>("/cvsa/repeat_trial");
+    this->srv_        = this->nh_.serviceClient<feedback_bci::Repeat_trial>("/cvsa/repeat_trial");
 
     
 }
@@ -132,7 +132,7 @@ void Online_eye::eyeCallback(const eye_decoder::Eye::ConstPtr& msg) {
         
         if(this->cont_frame_ >= this->th_frame_ && !this->just_repeated_){
 
-            feedback_cvsa::Repeat_trial srv;
+            feedback_bci::Repeat_trial srv;
             srv.request.class2repeat = this->c_class_;
             if(this->srv_.call(srv)) {
                 ROS_INFO("Repeat trial of class %d", this->c_class_);

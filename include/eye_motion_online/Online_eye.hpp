@@ -6,8 +6,8 @@
 
 #include "rosneuro_msgs/NeuroEvent.h"
 #include "eye_decoder/Eye.h"
-#include "feedback_cvsa/Repeat_trial.h"
-#include "feedback_cvsa/TrainingCVSA.h"
+#include "feedback_bci/Repeat_trial.h"
+#include "feedback_bci/TrainingCVSA.h"
 
 #include <cmath>
 

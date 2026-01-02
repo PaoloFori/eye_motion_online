@@ -11,7 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
              rosneuro_msgs
              message_generation
              eye_decoder
-             feedback_cvsa
+             feedback_bci
              geometry_msgs
              sensor_msgs
              cv_bridge
